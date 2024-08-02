@@ -1,0 +1,34 @@
+<!--
+==================
+Markdown Code function
+==================
+This can be used to add a ``` block around the selected text. Copy and tailor this snippet if
+you primarily add code snippets for specific programming languages.
+
+Usage:
+   Trigger the snippet via Tools > Snippets..., via keybinding or tab complete
+
+Example keybinding:
+   {
+      "keys": ["alt+c],
+      "command": "insert_snippet",
+      "args": { "name": "Packages/User/markdown_code.sublime-snippet" },
+      "context": [{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" }]
+   },
+
+Expected results:
+As an example the following string
+   hello code
+would be changed to:
+   ```c
+   hello code
+   ```
+-->
+<snippet>
+	<content><![CDATA[```c
+$SELECTION$0
+```]]></content>
+	<tabTrigger>code</tabTrigger>
+	<scope>text.html.markdown</scope>
+	<description>Markdown Code (adds ```c block)</description>
+</snippet>

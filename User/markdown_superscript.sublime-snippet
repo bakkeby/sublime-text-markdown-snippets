@@ -1,0 +1,34 @@
+<!--
+=============================
+Markdown Superscript function
+=============================
+This can be used to add <sup> characters around the selected text which makes text superscript in
+Markdown.
+
+Usage:
+   select text, then trigger the snippet via Tools > Snippets... or via keybinding
+
+Example keybinding:
+   {
+      "keys": ["alt+s"],
+      "command": "insert_snippet",
+      "args": { "name": "Packages/User/markdown_superscript.sublime-snippet" },
+      "context": [{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" }]
+   },
+
+Expected results:
+As an example the following string
+   hello superscript
+would be changed to:
+   <sup>hello superscript</sup>
+
+If the selected text contains leading or trailing spaces then those will be omitted.
+If the selected text is multi-line then <sup> will be added at the start and end of each line.
+-->
+<snippet>
+	<content><![CDATA[
+${SELECTION/(?:(^$))|(?:(^\s*))|(?:(\s*$))|(?:(\s*\n\s*))|(?:([^\n]*[^\n ]+))/(?1<sup>)(?2$2)(?3$3)(?4$4)(?5<sup>$5<\/sup>)/g}$0${SELECTION/(?:(^$))|(?:.+)/(?1<sup>)(?2)/g}
+]]></content>
+	<scope>text.html.markdown</scope>
+	<description>Markdown Superscript (adds sup formatting)</description>
+</snippet>

@@ -1,0 +1,33 @@
+<!--
+=======================
+Markdown Quote function
+=======================
+This can be used to prefix lines with > to create a quote block for the selected text.
+
+Usage:
+   Trigger the snippet via Tools > Snippets..., via keybinding or tab complete
+
+Example keybinding:
+   {
+      "keys": ["alt+q"],
+      "command": "insert_snippet",
+      "args": { "name": "Packages/User/markdown_quote.sublime-snippet" },
+      "context": [{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" }]
+   },
+
+Expected results:
+As an example the following string
+   hello quote
+   bye quote
+would be changed to:
+   > hello quote
+   > bye quote
+-->
+<snippet>
+	<content><![CDATA[
+> ${SELECTION/[\n]/\n> /g}
+]]></content>
+	<tabTrigger>quote</tabTrigger>
+	<scope>text.html.markdown</scope>
+	<description>Markdown Quote (adds {quote} block)</description>
+</snippet>

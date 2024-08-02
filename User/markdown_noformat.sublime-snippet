@@ -1,0 +1,33 @@
+<!--
+==========================
+Markdown noformat function
+==========================
+This can be used to add a monospaced ``` block around the selected text.
+
+Usage:
+   Trigger the snippet via Tools > Snippets..., via keybinding or tab complete
+
+Example keybinding:
+   {
+      "keys": ["alt+n],
+      "command": "insert_snippet",
+      "args": { "name": "Packages/User/markdown_noformat.sublime-snippet" },
+      "context": [{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" }]
+   },
+
+Expected results:
+As an example the following string
+   hello noformat
+would be changed to:
+   ```
+   hello noformat
+   ````
+-->
+<snippet>
+   <content><![CDATA[```
+$SELECTION$0
+```]]></content>
+   <tabTrigger>code</tabTrigger>
+   <scope>text.html.markdown</scope>
+   <description>Markdown noformat (adds ``` block)</description>
+</snippet>
